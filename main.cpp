@@ -41,61 +41,50 @@ const ll MAX = 1e6+100;
 const ll mod = 998244353;
 
 const int p = 31;
-string ss[]={"","breathe ", "count ", "2, ","3, ", "to ", "now ", "and ", "three, ", "continue ", "1, "};
 
-void bfs(vector<vector<int>> &vec, vector<bool> vis, int pos){
-    queue<int> cola;
-    cola.push(pos);
-    vis[pos]=true;
-    while(cola.size()){
-        int e = cola.front();
-        cola.pop();
-        for(int i=0; i<vec[e].size(); i++){
-            int current=vec[e][i];
+string ss[]= {
+        " ", " ","  Ella ", "y ", "cerro ", "se ",
+        "los ", "oscuridad ","ojos ", "dos ", "todo ", "las ",
+        "el ", "huecas ","tiempo, ", "gotitas ", "\n ", "cuencas de ",
+        "y ", "sus ","fue ", "saladas, ", "otro ", "ojos ",
+        "rostro ", "deshizo, \n ","lo ", "\n ", "que ", "secos,\n ",
+        "vio ", "con ","en ", "se ", "aquel ", "sin ",
+        "momento, ", "miedo ","\n ", "escurrieron ", "no ", "de ",
+        "desperdicio ", "que ","un ", "tan ", "solo ", "aun \n",
+        "detalle ", "acomodo ","de ", "despacio, ", "se ", " pudieran ",
+        "cuerpo, ", "que ","\n ", "\n ", "imagino ", "quedar ",
+        "otras ", "abiertos...","manos, ", "que ", "otros ", "nadie ",
+        "besos ", " ","\n ", "parecio ", "recordo", " ",
+        "sus ", " ","ojos, ", "eterno, \n ", "su ", "sus ",
+        "sonrisa ", " ","y ", "hasta ", "sus ", " ",
+        "oyuelos ", "pudiera ","\n ", "rozarle ", "y ", " ",
+        "sintio ", "manos \n","miedo", "los ", ", ", "verlo, \n ",
+        "\n ", " ","un ", "huesos \n ", "terrible ", " ",
+        "sentimiento ", " ","\n ", "toda ", "se ", " ",
+        "apodero ", " ","de", "su ", "su ", " ",
+        "pecho", "la ",", ", "piel ", "\n ", " en ",
+        " "
 
-            if(!vis[current]){
-                cola.push(current);
-                vis[current]=true;
-                cout<<ss[current];
-
-            }
-        }
-
-    }
-}
+};
 
 void solve()
 {
-    int n=11;
-    vector<vector<int>> a(n);
-    vector<bool> vis(n);
-    a[0].push_back(1);
-    a[0].push_back(7);
 
-    a[1].push_back(2);
-    a[1].push_back(5);
+    vector<bool> crib(120, false);
+     vector<ll> a (120);
 
-    a[2].push_back(3);
-    a[2].push_back(4);
+    a[2]=2;
+    for(int i=2;i<120;i++){
+        if(!crib[i]){
+            for(int j=i;j<120;j+=i){
+                if(!crib[j]){
+                    crib[j] = true;
+                    cout<<ss[j]<<" ";
+                }
 
-    a[5].push_back(6);
-
-    a[7].push_back(8);
-    a[7].push_back(10);
-
-    a[8].push_back(9);
-
-    bfs(a,vis,0);
-
-
-    out("");
-    out("Accepted! ");
-
-    ll x=1e10;
-    while(x--){
+            }
+        }
     }
-    cout<< "oh damn there was an error, msh"<<"\n";
-    cout<<"Wrong answer on test 1"<<"\n";
 
 }
 
@@ -114,8 +103,3 @@ int main() {
 
     return 0;
 }
-
-/*
- *         If you are reading this, it is quite possible that you have lost patience with me.
- *
- */
